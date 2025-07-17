@@ -59,4 +59,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
+    // botão que aumenta e diminui o tamanho do bloco de notas
+    const btnAumentarFonte = document.getElementById('aumentarFonte');
+    const btnDiminuirFonte = document.getElementById('diminuirFonte');
+    btnAumentarFonte.addEventListener('click', () => {
+        const currentSize = parseFloat(getComputedStyle(blocoDeNotas).fontSize);
+        blocoDeNotas.style.fontSize = (currentSize + 2) + 'px';
+    });
+    btnDiminuirFonte.addEventListener('click', () => {
+    const currentSize = parseFloat(getComputedStyle(blocoDeNotas).fontSize);
+    blocoDeNotas.style.fontSize = (currentSize - 2) + 'px';
+    });
+    //botão aleatoriza a cor do site
+    const botaoDasCor = document.getElementById('aleatorizarCor')
+    botaoDasCor.addEventListener('click', () => {
+        const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        document.body.style.backgroundColor = randomColor;
+        //fazer o h1 mudar de cor também
+        const titulo = document.querySelector('h1');
+        titulo.style.color = randomColor;
+    });
 });
